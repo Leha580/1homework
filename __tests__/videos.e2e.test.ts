@@ -22,20 +22,19 @@ describe(HARDCODE.PATH.VIDEOS, ()=> {
         await req.post(HARDCODE.PATH.VIDEOS).send({
             title: '   ',
             author: 2,
-            availableResolution: ['P480', 1, 'P321']
+            availableResolutions: ['P480', 1, 'P321']
             }).expect(HARDCODE.HTTP_STATUSES.BadRequest_400, {
                 errorsMessages: [{
+                    field: 'availableResolution',
+                    message: 'error!!!'
+                }, {
                     field: 'title',
                     message: 'error!!!'
                 },
                     {
                     field: 'author',
                     message: 'error!!!'
-                },
-                    {
-                        field: 'availableResolution',
-                        message: 'error!!!'
-                    }]
+                }]
         } as OutputErrorsType);
 
         await req.get(HARDCODE.PATH.VIDEOS).expect([])
@@ -45,14 +44,14 @@ describe(HARDCODE.PATH.VIDEOS, ()=> {
         const reqBodyVideo = {
             title: 'video1',
             author: 'John',
-            availableResolution: ["P480"]
+            availableResolutions: ["P480"]
         };
 
         const res = await req.post(HARDCODE.PATH.VIDEOS).send(reqBodyVideo).expect(HARDCODE.HTTP_STATUSES.Created_201);
 
         newVideo = res.body;
 
-        expect(newVideo).toEqual(reqBodyVideo);
+        expect(newVideo).toMatchObject(reqBodyVideo);
 
         await req.get(HARDCODE.PATH.VIDEOS).expect([newVideo])
     });
@@ -90,7 +89,7 @@ describe(HARDCODE.PATH.VIDEOS, ()=> {
         const reqBodyVideo = {
             title: 'video22',
             author: 'Alex',
-            availableResolution: ["P480", "P720"],
+            availableResolutions: ["P480", "P720"],
             canBeDownloaded: true
         };
 

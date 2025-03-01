@@ -19,8 +19,13 @@ export const videoController = {
         const notExistingId: OutputErrorsType = {
             errorsMessages: [{message: 'not existing id', field: 'id'}]
         };
-        if(db.videos[videoId]) {
-            return res.status(200).json(db.videos[videoId])
+        if(db.videos[db.videos.findIndex((el)=> {
+            el.id === videoId
+        })])
+        {
+            return res.status(200).json(db.videos[db.videos.findIndex((el)=> {
+                el.id == videoId
+            })])
         } else {
             return res.status(404).json(notExistingId)
         }

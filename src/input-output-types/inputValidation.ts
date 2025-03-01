@@ -13,12 +13,12 @@ export const postInputValidation = (video: postInputVideoType) => {
             message: 'error!!!', field: 'availableResolution'
         })
     }
-    if (typeof video.title !== 'string' || video.title.trim().length === 0) {
+    if (typeof video.title !== 'string' /*|| video.title.trim().length === 0*/ || video.title.trim().length > 40) {
         errors.errorsMessages.push({
             message: 'error!!!', field: 'title'
         })
     }
-    if (typeof video.author !== 'string'|| video.author.trim().length === 0) {
+    if (typeof video.author !== 'string'/*|| video.author.trim().length === 0*/|| video.title.trim().length > 20) {
         errors.errorsMessages.push({
             message: 'error!!!', field: 'author'
         })

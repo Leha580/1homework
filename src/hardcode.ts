@@ -4,8 +4,8 @@ config()
 export const HARDCODE = {
     PORT: process.env.PORT || 3000,
     PATH: {
-        VIDEOS: '/videos',
-        TESTING: '/testing'
+        VIDEOS: '/hometask_01/api/videos',
+        TESTING: '/hometask_01/api/testing'
     },
     HTTP_STATUSES: {
         OK_200: 200, // Запрос успешно выполнен

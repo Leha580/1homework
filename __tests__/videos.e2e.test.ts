@@ -88,7 +88,7 @@ describe(HARDCODE.PATH.VIDEOS, ()=> {
     });
     it('PUT video by correct id, with correct data', async() => {
         const reqBodyVideo = {
-            title: 'video2',
+            title: 'video22',
             author: 'Alex',
             availableResolution: ["P480", "P720"],
             canBeDownloaded: true

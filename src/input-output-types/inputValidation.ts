@@ -47,7 +47,7 @@ export const putInputValidation = (video: putInputVideoType) => {
             message: 'error!!!', field: 'author'
         })
     }
-    if (video.minAgeRestriction !== null && !Number.isFinite(video.minAgeRestriction) || video.minAgeRestriction > 18 || video.minAgeRestriction < 1 && video.minAgeRestriction !== null) {
+    if (video.minAgeRestriction !== null && !Number.isFinite(video.minAgeRestriction) || video.minAgeRestriction! > 18 || video.minAgeRestriction !== null && video.minAgeRestriction < 1) {
         errors.errorsMessages.push({
             message: 'error!!!', field: 'minAgeRestriction'
         })

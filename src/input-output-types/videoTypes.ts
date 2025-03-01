@@ -17,19 +17,19 @@ export type OutputVideoType = {
     minAgeRestriction: number | null,
     createdAt: string,
     publicationDate: string,
-    availableResolution: Resolutions[],
+    availableResolutions: Resolutions[],
 }
 
 export type postInputVideoType = {
     title: string
     author: string
-    availableResolution: Resolutions[]
+    availableResolutions: Resolutions[]
 }
 
 export type putInputVideoType = {
     title: string
     author: string
-    availableResolution: Resolutions[]
+    availableResolutions: Resolutions[]
     canBeDownloaded: boolean,
     minAgeRestriction: number | null,
     publicationDate: string,

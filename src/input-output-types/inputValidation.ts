@@ -8,7 +8,7 @@ export const postInputValidation = (video: postInputVideoType) => {
         errorsMessages: []
     }
 
-    if (!Array.isArray(video.availableResolution)|| video.availableResolution.find(p=> !Resolutions[p])) {
+    if (!Array.isArray(video.availableResolutions)|| video.availableResolutions.find(p=> !Resolutions[p])) {
         errors.errorsMessages.push({
             message: 'error!!!', field: 'availableResolution'
         })
@@ -32,7 +32,7 @@ export const putInputValidation = (video: putInputVideoType) => {
         errorsMessages: []
     }
 
-    if (!Array.isArray(video.availableResolution)|| video.availableResolution.find(p=> !Resolutions[p])) {
+    if (!Array.isArray(video.availableResolutions)|| video.availableResolutions.find(p=> !Resolutions[p])) {
         errors.errorsMessages.push({
             message: 'error!!!', field: 'availableResolution'
         })

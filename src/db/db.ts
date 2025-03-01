@@ -30,7 +30,7 @@ export const db: DBType = {
             minAgeRestriction: null,
             createdAt: '2025-02-25T04:52:53.087Z',
             publicationDate: '2025-02-26T04:52:53.087Z',
-            availableResolution: [Resolutions.P144]
+            availableResolutions: [Resolutions.P144]
         },
         {
             id: 1,
@@ -40,7 +40,7 @@ export const db: DBType = {
             minAgeRestriction: null,
             createdAt: '2025-02-27T04:52:53.087Z',
             publicationDate: '2025-02-28T04:52:53.087Z',
-            availableResolution: [Resolutions.P240]
+            availableResolutions: [Resolutions.P240]
         },
         {
             id: 2,
@@ -50,7 +50,7 @@ export const db: DBType = {
             minAgeRestriction: null,
             createdAt: '2025-02-15T04:52:53.087Z',
             publicationDate: '2025-02-16T04:52:53.087Z',
-            availableResolution: [Resolutions.P360]
+            availableResolutions: [Resolutions.P360]
         }
     ]
 }

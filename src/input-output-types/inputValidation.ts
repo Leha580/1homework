@@ -10,7 +10,7 @@ export const postInputValidation = (video: postInputVideoType) => {
 
     if (!Array.isArray(video.availableResolutions)|| video.availableResolutions.find(p=> !Resolutions[p])) {
         errors.errorsMessages.push({
-            message: 'error!!!', field: 'availableResolution'
+            message: 'error!!!', field: 'availableResolutions'
         })
     }
     if (typeof video.title !== 'string' || video.title.trim().length === 0 || video.title.trim().length > 40) {

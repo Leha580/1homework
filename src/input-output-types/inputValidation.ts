@@ -48,11 +48,11 @@ export const putInputValidation = (video: putInputVideoType) => {
         })
     }
 
-    if (typeof video.canBeDownloaded !== 'boolean') {
+    /*if (typeof video.canBeDownloaded !== 'boolean') {
         errors.errorsMessages.push({
             message: 'error!!!', field: 'canBeDownloaded'
         })
-    }
+    }*/
 
     if (video.minAgeRestriction !== null && !Number.isFinite(video.minAgeRestriction) || video.minAgeRestriction! > 18 || video.minAgeRestriction !== null && video.minAgeRestriction < 1) {
         errors.errorsMessages.push({

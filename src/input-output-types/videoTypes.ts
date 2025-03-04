@@ -21,15 +21,15 @@ export type OutputVideoType = {
 }
 
 export type postInputVideoType = {
-    title: string
-    author: string
-    availableResolutions: Resolutions[]
+    title: string,
+    author: string,
+    availableResolutions: Resolutions[],
 }
 
 export type putInputVideoType = {
-    title: string
-    author: string
-    availableResolutions: Resolutions[]
+    title: string,
+    author: string,
+    availableResolutions: Resolutions[],
     canBeDownloaded: boolean,
     minAgeRestriction: number | null,
     publicationDate: string,

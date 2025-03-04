@@ -16,15 +16,17 @@ export const videoController = {
 
     findVideoController: (req: Request<ParamType>, res: Response<OutputVideoType | OutputErrorsType>)=> {
         const videoId = +req.params.id
+
         const notExistingId: OutputErrorsType = {
             errorsMessages: [{message: 'not existing id', field: 'id'}]
         };
-        if(db.videos[db.videos.findIndex((el)=> {
-            el.id === videoId
-        })])
-        {
-            return res.status(200).json(db.videos[db.videos.findIndex((el)=> {
-                el.id == videoId
+
+
+        if(db.videos[db.videos.findIndex((el: OutputVideoType)=> {
+            return el.id === videoId
+        })]) {
+            return res.status(200).json(db.videos[db.videos.findIndex((el: OutputVideoType)=> {
+                return el.id == videoId
             })])
         } else {
             return res.status(404).json(notExistingId)
@@ -58,10 +60,15 @@ export const videoController = {
 
     updateVideoController: (req: Request<ParamType, any, putInputVideoType>, res: Response<OutputErrorsType>) => {
         //console.log('req.body:', req.body);
-        const videoId = +req.params.id
+        const reqId = +req.params.id
         const notExistingId: OutputErrorsType = {
             errorsMessages: [{message: 'not existing id', field: 'id'}]
         };
+
+        const videoId = db.videos.findIndex((el: OutputVideoType)=> {
+            return el.id === reqId
+        })
+
         if(!db.videos[videoId]) {
             return res.status(404).json(notExistingId)
         }
@@ -69,7 +76,6 @@ export const videoController = {
         if (errors.errorsMessages.length) { // если есть ошибки - отправляем ошибки
 
             return res.status(400).json(errors)
-            // return res.status(400).json(errors)
         }
 
         db.videos[videoId] = {
@@ -81,7 +87,10 @@ export const videoController = {
     },
 
     deleteVideoController: (req: Request<ParamType>, res: Response<void>)=> {
-        const videoId = +req.params.id
+        const reqId = +req.params.id
+        const videoId = db.videos.findIndex((el: OutputVideoType)=> {
+            return el.id === reqId
+        })
         if(db.videos[videoId]) {
             db.videos.splice(videoId, 1)
 

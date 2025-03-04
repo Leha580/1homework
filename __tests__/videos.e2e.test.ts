@@ -66,7 +66,7 @@ describe(HARDCODE.PATH.VIDEOS, ()=> {
     })
 
     it('NOT PUT video by incorrect id', async() => {
-        await req.put(`${HARDCODE.PATH.VIDEOS}/${newVideo!.id}`).expect(HARDCODE.HTTP_STATUSES.NotFound_404)
+        await req.put(`${HARDCODE.PATH.VIDEOS}/1.23456789`).expect(HARDCODE.HTTP_STATUSES.NotFound_404)
     })
     it('NOT PUT video by correct id, but incorrect data', async() => {
         await req.put(`${HARDCODE.PATH.VIDEOS}/${newVideo!.id}`).send({
@@ -75,10 +75,10 @@ describe(HARDCODE.PATH.VIDEOS, ()=> {
             author: 33
         }).expect(HARDCODE.HTTP_STATUSES.BadRequest_400, {
             errorsMessages: [{
-                field: 'minAgeRestriction',
+                field: 'author',
                 message: 'error!!!'
             }, {
-                field: 'author',
+                field: 'minAgeRestriction',
                 message: 'error!!!'
             }]
         } as OutputErrorsType);

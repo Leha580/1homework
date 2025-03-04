@@ -108,4 +108,19 @@ describe(HARDCODE.PATH.VIDEOS, ()=> {
     it('NOT DELETE video by incorrect id', async () => {
         await req.delete(`${HARDCODE.PATH.VIDEOS}/${newVideo!.id}`).expect(HARDCODE.HTTP_STATUSES.NotFound_404);
     })
+
+    it('NOT POST, should return error if passed body is incorrect; status 400;', async () => {
+        await req.post(HARDCODE.PATH.VIDEOS).send({
+            title: null,
+            author: "valid author",
+            availableResolutions: ["P144","P240","P720"]
+        }).expect(HARDCODE.HTTP_STATUSES.BadRequest_400, {
+            errorsMessages: [{
+                message: 'error!!!',
+                field: 'title'
+            }]
+        } as OutputErrorsType);
+
+        await req.get(HARDCODE.PATH.VIDEOS).expect([])
+    })
 })
